@@ -1,0 +1,23 @@
+@layout('layouts/main')
+@set('title', 'Usuários')
+@set('subtitle', 'Selecione um')
+@set('pageName', 'Lista de Usuários')
+
+@section('body')
+  @if(auth.isLoggedIn)
+    <p>Hello, email: {{auth.user.email}}, how u doing?</p>
+  @endif
+    <ul>
+      @each(user in dataUsers)
+          <li>
+            {{user.id}}
+              {{--  <a href="users-data/{{user.id}}"> {{user.name}} </a>  --}}
+            <a href= '{{ route( "users-data.show", {id:`${user.id}`} ) }}'> 
+              {{user.name}}
+            </a>
+          </li>
+      @end
+    </ul>
+@end
+
+
