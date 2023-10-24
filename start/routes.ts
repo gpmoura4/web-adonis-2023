@@ -26,4 +26,4 @@ Route.get('/leave', async ({ view }: HttpContextContract) => {
   return view.render('leave')
 }).as('leave')
 
-// Route.post('/', 'DataUsersController.postContent')
+Route.post('/', 'DataUsersController.postContent')
