@@ -29,6 +29,10 @@ export default class User extends BaseModel {
     }
   }
 
-  @hasMany(() => Post)
+  @hasMany(() => Post, {
+    foreignKey: 'user_id'
+  })
   public posts: HasMany<typeof Post>
+
+
 }
