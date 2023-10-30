@@ -17,7 +17,7 @@ export default class SessionsController {
 
         try {
             await auth.use('web').attempt(email, passw)
-            response.redirect().toRoute('users-data.index')
+            response.redirect().toRoute('post.index')
         } catch {
             return response.badRequest('ERROR')
         }

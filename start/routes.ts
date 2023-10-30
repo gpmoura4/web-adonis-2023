@@ -4,6 +4,10 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 // import controller from 'app/Controllers/ Http/DataUsersController'
 
 
+Route.get('/', async ({ view }: HttpContextContract) => {
+  return view.render('welcome')
+})
+
 // LOGIN ROUTES
 Route.get('/login', 'SessionsController.create').as('sessions.create')
 Route.post('/login', 'SessionsController.postContent').as('sessions.postContent')
@@ -18,12 +22,19 @@ Route.group(() => {
   .middleware('auth')
   .as('users-data')
 
-Route.get('/', async ({ view }: HttpContextContract) => {
-  return view.render('welcome')
-})
-
 Route.get('/leave', async ({ view }: HttpContextContract) => {
   return view.render('leave')
 }).as('leave')
 
-// Route.post('/', 'DataUsersController.postContent')
+Route.post('/', 'DataUsersController.postContent')
+
+
+Route.group(() =>{
+  Route.get('/', 'PostsController.index').as('index')
+  Route.get('/novo', 'PostsController.create').as('create')
+  Route.get('/:id', 'PostsController.show').as('show').where('id', /^[0-9]+$/)
+  Route.post('/', 'PostsController.store').as('store')
+})
+  .prefix('/post')
+  .middleware('auth')
+  .as('post')
