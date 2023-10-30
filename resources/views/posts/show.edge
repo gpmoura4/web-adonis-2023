@@ -1,0 +1,8 @@
+@layout('layouts/main')
+@set('title', post.title)
+@set('subtitle', user.email)
+@set('pageName', post.title)
+
+@section('body')
+    <p>{{ post.content }}</p>
+@end
