@@ -16,11 +16,36 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 1.25rem 10.6rem;
 }
 
-header p {
+.logo {
   font-family: 'Jack Pirate';
+  font-size: 2rem;
+  color: white;
+}
+
+
+.menu {
+  display: flex;
+  list-style: none;
+  font-family: Montserrat;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.menu > li > a{
+  text-decoration: none;
+  margin-left: 2.44rem;
+  color: #FFE1A8;
+}
+
+.menu > li > a:hover{
+  color: #FFF1D6;
+  transition: 200ms;
 }
 
 
