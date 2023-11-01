@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{pageName}}</title>
-  @entryPointStyles('app')
-  @entryPointScripts('app')
-</head>
-<body>
-  <main>
-    <div>
-      <h1 class="title"> {{title}} </h1>
-      {{subtitle}}
-      <br></br>
-      @!section('body')
-      @!section('testDiv')
-    </div>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageName}}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+  </head>
+  <body>
+    @include('layouts/partials/header')
+
+      
+
+  </body>
 </html>

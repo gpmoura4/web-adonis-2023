@@ -5,7 +5,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 
 
 Route.get('/', async ({ view }: HttpContextContract) => {
-  return view.render('welcome')
+  return view.render('home/home')
 })
 
 // LOGIN ROUTES
