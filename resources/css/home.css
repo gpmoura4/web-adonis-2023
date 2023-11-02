@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'Jack Pirate';
+    src: url('/resources/fonts/JackPirate.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+header {
+    background-color: #463F3A;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 10.6rem;
+}
+  
+.logo > a > img{
+    width: 6.125rem;
+    height: 3.5rem;
+}
+  
+  
+.menu {
+    display: flex;
+    list-style: none;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu > li > a{
+    text-decoration: none;
+    margin-left: 2.44rem;
+    color: #FFE1A8;
+}
+
+.menu > li > a:hover{
+    color: #FFF1D6;
+    transition: 200ms;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.carret-down {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.hero {
+    height: 27rem;
+    position: relative;
+}
+
+.hero-img {
+    width: 100%; /* Garante que a imagem cubra todo o espaço da div */
+    height: 100%; /* Garante que a imagem cubra todo o espaço da div */
+    object-fit: cover; /* Corta a imagem para preencher a div */
+}
+
+.user-call{ 
+    padding-top: 5rem;  
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10.6rem;
+}
+
+.text-call {
+    text-align: right;
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: lighter;
+    color: #472D30;
+    padding-bottom: 2.5rem;
+}
+
+.user-call > button {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    width: 13.625rem;
+    height: 2.375rem;
+    color: #463F3A;
+    border-radius: 0.875rem;
+    border: 2px solid #463F3A;
+    background: #FFE1A8;
+}
+
+.user-call > button:hover {
+    transition: 200ms;
+    background-color: #FFF1D6;
+}
+
+
+
+
+
+  
+
+
+  
+  

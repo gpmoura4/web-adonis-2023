@@ -1,8 +1,15 @@
 @layout('layouts/main')
-@set('title', 'Crie um novo post')
-@set('subtitle', 'Compartilhe algo novo')
-@set('pageName', 'Novo Post')
+@set('pageName', 'Ágora')
 
 @section('body')
-
+    @entryPointStyles('home')
+    <div class="hero">
+        <div class="img-container">
+            <img src="/images/Paul-at-the-Areopagus-of-Athens-A9.png" alt="Pintura - Paulo no Areópago de Atenas" class="hero-image">
+        </div>
+        <div class="user-call">
+            <div class="text-call"> Explore a jornada de fé, ciência e teologia </div>   
+            <button>COMECE A ESCREVER</button>
+        </div>
+    </div>
 @end
