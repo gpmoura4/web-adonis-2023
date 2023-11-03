@@ -15,6 +15,22 @@
       "js": [
         "http://localhost:8080/assets/home.js"
       ]
+    },
+    "posts": {
+      "css": [
+        "http://localhost:8080/assets/posts.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts.js"
+      ]
+    },
+    "posts-create": {
+      "css": [
+        "http://localhost:8080/assets/posts-create.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts-create.js"
+      ]
     }
   }
 }

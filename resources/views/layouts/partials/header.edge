@@ -1,11 +1,11 @@
 <header>
     <div class="logo">
-        <a href=""><img src="/images/agora.png" alt="Ágora Logo"></a>
+        <a href="{{ route('home') }}"><img src="/images/agora.png" alt="Ágora Logo"></a>
     </div>  
     
     <nav>
         <ul class="menu">
-            <li> <a href=""> Publicações </a></li>
+            <li> <a href="{{ route('PostsController.index') }}"> Publicações </a></li>
             <li> <a href=""> Artigos </a></li>
             <li> <a href=""> Review </a></li>
             <li> <a href=""> Sobre Nós </a></li>

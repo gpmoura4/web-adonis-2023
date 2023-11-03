@@ -6,7 +6,9 @@ import User from 'App/Models/User'
 export default class PostsController {
     public async index({ view, auth }: HttpContextContract) {
         const posts = await Post.all()
-        return view.render('posts/index', { posts })
+        const users = await User.all()
+
+        return view.render('posts/index', { posts, users })
     }
 
     public async create({}: HttpContextContract) {

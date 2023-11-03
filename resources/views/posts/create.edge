@@ -1,14 +1,15 @@
 @layout('layouts/main')
-@set('title', 'Crie um novo post')
-@set('subtitle', 'Compartilhe algo novo')
 @set('pageName', 'Novo Post')
 
 @section('body')
-    <form action="{{ route('PostsController.store') }}" method="POST">
-        <label for="title">Título</label><br>
-        <input type="text" class="post-title" name="title" id="post-title-id"><br>
-        {{--  <label for="post-content">Conteúdo</label>  --}}
-        <textarea name="content" id="post-content-id" class="post-content" cols="30" rows="10" placeholder="O que você está pensando?"></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
+    @entryPointStyles('posts-create')
+    <div class="form-container">
+        <form action="{{ route('PostsController.store') }}" method="POST">
+            <label for="title">Título</label><br>
+            <input type="text" class="post-title" name="title" id="post-title-id"><br>
+            {{--  <label for="post-content">Conteúdo</label>  --}}
+            <textarea name="content" id="post-content-id" class="post-content" cols="30" rows="10" placeholder="O que você está pensando?"></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 @end

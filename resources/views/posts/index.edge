@@ -1,22 +1,31 @@
 @layout('layouts/main')
-@set('title', 'Post')
-@set('subtitle', 'Olha esses posts!')
-@set('pageName', 'Novo Post')
+@set('pageName', 'Agora')
 
 @section('body')
-    <a href=" {{ route('post.create') }} ">
-        <button name="newPostButton" type="button"> Novo Post </button>
-    </a>
-
-    <h1>Novidades</h1>
-    <ul>
-        @each(post in posts)
-            <li>
-                <a href="{{ route("post.show", {id:`${post.id}`}) }}">
-                    {{ post.title }}
-                </a>
-            </li>
-        @end
-    </ul>
-
+    @entryPointStyles('posts')
+    <div class="posts">
+        <div class="title-head">
+            {{--  <a href=" {{ route('post.create') }} ">
+                <button name="newPostButton" type="button"> Novo Post </button>
+            </a>  --}}
+        
+        <h1>TODAS AS PUBLICAÇÕES</h1>
+        </div>
+        <div class="post">
+            <ul>
+                @each(post in posts)
+                    <li class="post-details">
+                        <div class="post-img">
+                        </div>
+                        <div class="post-infos">
+                            <div class="post-title"> {{ post.title }} </div>
+                            <div class="post-author"> {{ users.find(user => user.id === post.user_id).email }} </div>
+                            <div class="post-resume"> {{ post.content }} </div>
+                            <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
+                        </div>
+                    </li>
+                @end
+            </ul>
+        </div>
+    </div>
 @end

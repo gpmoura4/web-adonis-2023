@@ -3,5 +3,9 @@
   "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/home.css": "http://localhost:8080/assets/home.css",
   "assets/home.js": "http://localhost:8080/assets/home.js",
+  "assets/posts.css": "http://localhost:8080/assets/posts.css",
+  "assets/posts.js": "http://localhost:8080/assets/posts.js",
+  "assets/posts-create.css": "http://localhost:8080/assets/posts-create.css",
+  "assets/posts-create.js": "http://localhost:8080/assets/posts-create.js",
   "assets/fonts/JackPirate.ttf": "http://localhost:8080/assets/fonts/JackPirate.639e1df5.ttf"
 }

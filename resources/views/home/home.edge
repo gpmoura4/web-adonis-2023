@@ -9,7 +9,7 @@
         </div>
         <div class="user-call">
             <div class="text-call"> Explore a jornada de fé, ciência e teologia </div>   
-            <button>COMECE A ESCREVER</button>
+            <a href="{{ route('PostsController.create') }}"><button>COMECE A ESCREVER</button></a>
         </div>
     </div>
 
@@ -20,38 +20,28 @@
 
     <div class="new-posts">
         <h1>PUBLICAÇÕES RECENTES</h1>
-        <div class="post">
-            <div class="post-img">
+            <div class="post">
+                <ul>
+                @each(post in posts)
+                    <li>
+                        <div class="post-img">
+                        </div>
+                        <div class="post-infos">
+                            <div class="post-title"> {{ post.title }} </div>
+                            <div class="post-author"> {{ user.find(post.user_id) }} </div>
+                            <div class="post-resume"> {{ post.summary }} </div>
+                            <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
+                        </div>
+                    </li>
+                @end
+            </ul>
             </div>
-            <div class="post-infos">
-                <div class="post-title"> What is Lorem Ipsum? </div>
-                <div class="post-author"> Guilherme Moura </div>
-                <div class="post-resume"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
-                <a href=""><button disabled="disabled" class="post-category"> Artigo </button> </a>
-            </div>
-        </div>
-        <div class="post">
-            <div class="post-img">
-            </div>
-            <div class="post-infos">
-                <div class="post-title"> What is Lorem Ipsum? </div>
-                <div class="post-author"> Guilherme Moura </div>
-                <div class="post-resume"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
-                <a href=""><button disabled="disabled" class="post-category"> Artigo </button> </a>
-            </div>
-        </div>
-        <div class="post">
-            <div class="post-img">
-            </div>
-            <div class="post-infos">
-                <div class="post-title"> What is Lorem Ipsum? </div>
-                <div class="post-author"> Guilherme Moura </div>
-                <div class="post-resume"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
-                <a href=""><button disabled="disabled" class="post-category"> Artigo </button> </a>
-            </div>
-        </div>
-        <div class="more-posts">
-            <button> VER MAIS </button>
-        </div>
     </div>
+    <div class="more-posts">
+        <a href="{{ route('PostsController.create') }}"><button> VER MAIS </button></a>
+    </div>
+
+    @each(post in posts)
+        <li>{{ post.title }} </li>
+    @endeach
 @end
