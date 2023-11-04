@@ -3,9 +3,11 @@
   "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/home.css": "http://localhost:8080/assets/home.css",
   "assets/home.js": "http://localhost:8080/assets/home.js",
-  "assets/posts.css": "http://localhost:8080/assets/posts.css",
-  "assets/posts.js": "http://localhost:8080/assets/posts.js",
+  "assets/posts-index.css": "http://localhost:8080/assets/posts-index.css",
+  "assets/posts-index.js": "http://localhost:8080/assets/posts-index.js",
   "assets/posts-create.css": "http://localhost:8080/assets/posts-create.css",
   "assets/posts-create.js": "http://localhost:8080/assets/posts-create.js",
+  "assets/posts-show.css": "http://localhost:8080/assets/posts-show.css",
+  "assets/posts-show.js": "http://localhost:8080/assets/posts-show.js",
   "assets/fonts/JackPirate.ttf": "http://localhost:8080/assets/fonts/JackPirate.639e1df5.ttf"
 }

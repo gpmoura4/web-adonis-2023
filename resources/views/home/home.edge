@@ -20,28 +20,24 @@
 
     <div class="new-posts">
         <h1>PUBLICAÇÕES RECENTES</h1>
-            <div class="post">
-                <ul>
+        <div class="post">
+            <ul>
                 @each(post in posts)
-                    <li>
+                    <li class="post-details">
                         <div class="post-img">
                         </div>
                         <div class="post-infos">
                             <div class="post-title"> {{ post.title }} </div>
-                            <div class="post-author"> {{ user.find(post.user_id) }} </div>
+                            <div class="post-author"> {{ users.find(user => user.id === post.user_id).email }} </div>
                             <div class="post-resume"> {{ post.summary }} </div>
                             <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
                         </div>
                     </li>
                 @end
             </ul>
-            </div>
+        </div>
     </div>
     <div class="more-posts">
         <a href="{{ route('PostsController.create') }}"><button> VER MAIS </button></a>
     </div>
-
-    @each(post in posts)
-        <li>{{ post.title }} </li>
-    @endeach
 @end

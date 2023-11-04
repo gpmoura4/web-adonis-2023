@@ -33,6 +33,4 @@ export default class User extends BaseModel {
     foreignKey: 'user_id'
   })
   public posts: HasMany<typeof Post>
-
-
 }

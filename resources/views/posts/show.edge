@@ -2,5 +2,17 @@
 @set('pageName', post.title)
 
 @section('body')
-    <p>{{ post.content }}</p>
+    @entryPointStyles('posts-show')
+    <div class="show-container">
+        <div class="show-header"></div>
+        <div class="image-cover">
+
+        </div>
+        <div class="post-category"> {{ post.category }} </div>
+        <div class="post-title"> {{ post.title }} </div>
+        <div class="creation-infos">
+            <div class="post-author"> {{ user.email }} </div>
+            <div class="post-date"> {{ post.createdAt }} </div>
+        </div>
+    </div>
 @end

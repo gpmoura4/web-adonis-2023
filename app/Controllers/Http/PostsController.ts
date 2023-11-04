@@ -25,6 +25,10 @@ export default class PostsController {
     public async show({ params, view }: HttpContextContract) {
         const post = await Post.findOrFail(params.id)
         const user = await User.find(post.user_id)
+        const { DateTime } = require('luxon')
+
+        post.createdAt = DateTime.fromISO(post.createdAt).toLocaleString({month: '2-digit', day: '2-digit', year: 'numeric'});
+
         return view.render('posts/show', {post: post, user: user})
     }
   

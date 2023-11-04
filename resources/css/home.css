@@ -201,12 +201,19 @@ footer > p {
     margin: 2rem 0;
 }
 
-.post > ul{
+.post > ul {
     list-style: none;
 }
 
+.post-details {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    align-items: center;
+}
+
 .post-img {
-    width: 800px;
+    width: 250px;
     height: 161px;
     border-radius: 2rem;
     background: #D9D9D9;
@@ -216,6 +223,10 @@ footer > p {
     height: 80%;
 }
 
+.post-infos > a {
+    text-decoration: none;
+}
+
 .post-title {
     color:#2C1A11;
     font-family: 'Montserrat', sans-serif;
@@ -223,6 +234,11 @@ footer > p {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    transition: 200ms;
+}
+
+.post-title:hover {
+    color: #472D30;
 }
 
 .post-author {
@@ -255,7 +271,6 @@ footer > p {
     width: 100px;
     height: 30px;
 }
-
 .more-posts {
     background-color: #FFF1D6;
     display: flex;

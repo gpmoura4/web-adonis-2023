@@ -16,12 +16,12 @@
         "http://localhost:8080/assets/home.js"
       ]
     },
-    "posts": {
+    "posts-index": {
       "css": [
-        "http://localhost:8080/assets/posts.css"
+        "http://localhost:8080/assets/posts-index.css"
       ],
       "js": [
-        "http://localhost:8080/assets/posts.js"
+        "http://localhost:8080/assets/posts-index.js"
       ]
     },
     "posts-create": {
@@ -30,6 +30,14 @@
       ],
       "js": [
         "http://localhost:8080/assets/posts-create.js"
+      ]
+    },
+    "posts-show": {
+      "css": [
+        "http://localhost:8080/assets/posts-show.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts-show.js"
       ]
     }
   }
