@@ -18,9 +18,9 @@
                         <div class="post-img">
                         </div>
                         <div class="post-infos">
-                            <div class="post-title"> {{ post.title }} </div>
+                            <a href="{{ route("post.show", {id:`${post.id}`}) }}"> <div class="post-title"> {{ post.title }} </div> </a>              
                             <div class="post-author"> {{ users.find(user => user.id === post.user_id).email }} </div>
-                            <div class="post-resume"> {{ post.content }} </div>
+                            <div class="post-resume"> {{ post.summary }} </div>
                             <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
                         </div>
                     </li>

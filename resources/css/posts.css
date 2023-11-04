@@ -127,6 +127,10 @@ footer > p {
     height: 80%;
 }
 
+.post-infos > a {
+    text-decoration: none;
+}
+
 .post-title {
     color:#2C1A11;
     font-family: 'Montserrat', sans-serif;
@@ -134,6 +138,11 @@ footer > p {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    transition: 200ms;
+}
+
+.post-title:hover {
+    color: #472D30;
 }
 
 .post-author {
