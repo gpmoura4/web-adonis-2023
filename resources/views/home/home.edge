@@ -8,8 +8,12 @@
             <img src="/images/Paul-at-the-Areopagus-of-Athens-A9-copy.png" alt="Pintura - Paulo no Areópago de Atenas" class="hero-image">
         </div>
         <div class="user-call">
-            <div class="text-call"> Explore a jornada de fé, ciência e teologia </div>   
+            <div class="text-call"> Explore a jornada de fé, ciência e teologia </div>
+            @if(auth.isLoggedIn)
             <a href="{{ route('PostsController.create') }}"><button>COMECE A ESCREVER</button></a>
+            @else
+            <a href="{{ route('PostsController.create') }}"><button>COMECE A ESCREVER</button></a>
+            @endif
         </div>
     </div>
 
@@ -40,4 +44,4 @@
     <div class="more-posts">
         <a href="{{ route('PostsController.create') }}"><button> VER MAIS </button></a>
     </div>
-@end
+@endsection

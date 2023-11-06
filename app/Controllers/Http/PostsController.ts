@@ -11,8 +11,8 @@ export default class PostsController {
         return view.render('posts/index', { posts, users })
     }
 
-    public async create({}: HttpContextContract) {
-        return view.render('posts/create')
+    public async create({ auth }: HttpContextContract) {
+        return view.render('posts/create', { auth })
     }
   
     public async store({ request, response, auth }: HttpContextContract) {

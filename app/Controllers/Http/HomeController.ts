@@ -4,11 +4,11 @@ import Post from 'App/Models/Post'
 import User from 'App/Models/User'
 
 export default class HomeController {
-  public async index({ view }: HttpContextContract) {
+  public async index({ view, auth }: HttpContextContract) {
     const posts = await Post.query().orderBy('created_at', 'desc').limit(3)
     const users = await User.all()
 
-    return view.render('home/home', { posts, users })
+    return view.render('home/home', { posts, users, auth })
   }
 
   public async create({}: HttpContextContract) {}

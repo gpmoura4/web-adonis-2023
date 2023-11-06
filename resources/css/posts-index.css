@@ -124,6 +124,7 @@ footer > p {
 }
 
 .post-infos {
+    width: 50rem;
     height: 80%;
 }
 
@@ -161,6 +162,7 @@ footer > p {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    padding-bottom: 0.3rem;
 }
 
 .post-category {

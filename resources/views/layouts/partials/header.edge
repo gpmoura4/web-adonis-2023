@@ -5,16 +5,25 @@
     
     <nav>
         <ul class="menu">
-            <li> <a href="{{ route('PostsController.index') }}"> Publicações </a></li>
-            <li> <a href=""> Artigos </a></li>
-            <li> <a href=""> Review </a></li>
-            <li> <a href=""> Sobre Nós </a></li>
+            <li> <a href="{{ route('PostsController.index') }}"> PUBLICAÇÕES </a></li>
+            <li> <a href=""> ARTIGOS </a></li>
+            <li> <a href=""> REVIEWS </a></li>
+            <li> <a href=""> SOBRE NÓS </a></li>
         </ul>
     </nav>
 
     <div class="user-options">
-        <a href=""><img src="/icons/circle-user.svg" alt="User image" class="user-img"></a>
-        <a href=""><img src="/icons/caret-down.svg" alt="User image" class="carret-down"></a>
-       
+        @if (!auth.isLoggedIn)
+            <div class="login">
+                <a href="{{ route('sessions.create') }}"> <button class="login-button"> LOGIN </button> </a>
+            </div>
+        @else
+            <div class="select-menu">
+                <div class="select-btn">
+                    <span class="sBtn-text"> {{ auth.user.email }} </span>
+                </div>
+            </div>
+
+        @endif
     </div>
 </header>
