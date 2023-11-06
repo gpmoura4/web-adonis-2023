@@ -5,7 +5,7 @@
 
 @section('body')
   @if(auth.isLoggedIn)
-    <p>Hello, email: {{auth.user.email}}, how u doing?</p>
+    <p>Usuário logado: {{auth.user.email}}, como vai você?</p>
   @endif
     <ul>
       @each(user in dataUsers)
@@ -13,7 +13,7 @@
             {{user.id}}
               {{--  <a href="users-data/{{user.id}}"> {{user.name}} </a>  --}}
             <a href= '{{ route( "users-data.show", {id:`${user.id}`} ) }}'> 
-              {{user.name}}
+              {{user.email}}
             </a>
           </li>
       @end

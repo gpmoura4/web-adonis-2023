@@ -4,6 +4,14 @@
 @set('pageName', 'Novo Post')
 
 @section('body')
+    @if(auth.isLoggedIn)
+        {{--  <p>Nome: {{auth.user.name}} </p>
+        <p>Sobrenome: {{auth.user.last_name}}</p>
+        <p>Email: {{auth.user.email}}</p>  --}}
+    @endif
+
+    <a href="{{ route('DataUsersController.index') }}">Meu Perfil</a><br>
+
     <a href=" {{ route('post.create') }} ">
         <button name="newPostButton" type="button"> Novo Post </button>
     </a>
@@ -18,5 +26,6 @@
             </li>
         @end
     </ul>
+
 
 @end

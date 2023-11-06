@@ -17,7 +17,8 @@ export default class PostsController {
         const data = await request.only(['title', 'content'])
         const author = auth.user.id
         const post = await Post.create({ user_id: author, ...data})
-        return response.redirect().toRoute('post.index')
+        const dataUsers = await User.all() 
+        return response.redirect().toRoute('post.index' , { dataUsers })
     }
   
     public async show({ params, view }: HttpContextContract) {

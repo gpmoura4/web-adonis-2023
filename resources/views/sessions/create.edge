@@ -5,12 +5,12 @@
 
 @section('body')
     {{--  <form action= " {{ route('sessions.postcontent') }} " method="POST">  --}}
-    <form action= " {{ route('SessionsController.postContent') }} " method="POST">
+    <form action= " {{ route('SessionsController.store') }} " method="POST">
     {{--  <form action= "  " method="POST">  --}}
         <label for="email-input-name">insira seu email</label><br>
         <input class="email-input" id="email-input-id" name="email-input-name" type="email"><br>
         <label for="passw-input-name">insira sua senha</label><br>
-        <input class="passw-input" id="passw-input-id" name="passw-input-name" type="passw"><br>
+        <input class="passw-input" id="passw-input-id" name="passw-input-name" type="password"><br>
         <br>
         <button type="submit">Entrar</button>
 
