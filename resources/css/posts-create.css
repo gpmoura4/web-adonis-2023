@@ -51,21 +51,37 @@ header {
     color: #FFF1D6;
 }
 
-.user-options {
+.select-menu {
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    transition: 250ms;
     display: flex;
     align-items: center;
 }
 
-.user-img {
-    width: 1.75rem;
-    height: 1.75rem;
+.select-menu:hover {
+    background-color: #BF805F;
+    cursor: pointer;
 }
 
-.carret-down {
-    width: 1.25rem;
-    height: 1.25rem;
+.select-btn {
+    width: 100%; /* Ocupa toda a largura do select-menu */
+    overflow: hidden; /* Oculta qualquer texto que transbordar o elemento */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber no elemento */
 }
-
+  
+.sBtn-text {
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    padding: 1rem;
+}
 footer {
     display: flex;
     flex-direction: column;
