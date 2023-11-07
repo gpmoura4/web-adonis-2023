@@ -3,41 +3,30 @@ import Route from '@ioc:Adonis/Core/Route'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 // import controller from 'app/Controllers/ Http/DataUsersController'
 
-// HOME
+
 Route.get('/', 'HomeController.index').as('home')
 
 // LOGIN ROUTES
 Route.get('/login', 'SessionsController.create').as('sessions.create')
-Route.post('/login', 'SessionsController.store').as('sessions.store')
+Route.post('/login', 'SessionsController.postContent').as('sessions.postContent')
 Route.get('/logout', 'SessionsController.logout').as('sessions.logout')
 
 // INDEX and SHOW USERS ROUTES
 Route.group(() => {
   Route.get('/', 'DataUsersController.index').as('index')
-  // Route.get('/:id', 'DataUsersController.show').as('show')
-  Route.get('/:id/edit', 'DataUsersController.edit').as('edit')
-  Route.post('/:id', 'DataUsersController.update').as('update')
+  Route.get('/:id', 'DataUsersController.show').as('show')
 })
-  .prefix('/user')
+  .prefix('/users-data')
   .middleware('auth')
-  .as('user')
+  .as('users-data')
 
 Route.get('/leave', async ({ view }: HttpContextContract) => {
   return view.render('leave')
 }).as('leave')
 
+Route.post('/', 'DataUsersController.postContent')
 
 
-// // USER ROUTE
-// Route.group(() =>{
-//   Route.get('/', '.index').as('index')
-// })
-//   .middleware('auth')
-
-
-
-
-// POST ROUTES
 Route.group(() =>{
   Route.get('/', 'PostsController.index').as('index')
   Route.get('/novo', 'PostsController.create').as('create')
