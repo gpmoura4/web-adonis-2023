@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'Jack Pirate';
+    src: url('/resources/fonts/JackPirate.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    background-color: #463F3A;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 10.6rem;
+}
+  
+.logo > a > img{
+    width: 6.125rem;
+    height: 3.5rem;
+    width: 100%;
+}
+  
+  
+.menu {
+    display: flex;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    ;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu > li > a{
+    text-decoration: none;
+    margin-left: 2.44rem;
+    color: #FFE1A8;
+    transition: 200ms;
+}
+
+.menu > li > a:hover{
+    color: #FFF1D6;
+}
+
+.select-menu {
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    transition: 250ms;
+    display: flex;
+    align-items: center;
+}
+
+.select-menu:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.select-btn {
+    width: 100%; /* Ocupa toda a largura do select-menu */
+    overflow: hidden; /* Oculta qualquer texto que transbordar o elemento */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber no elemento */
+}
+  
+.sBtn-text {
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #463F3A;
+    padding: 1.25rem 0;
+}
+
+footer > img {
+    width: 6.125rem;
+    height: 3.5rem;
+}
+
+footer > p {
+    color: #FFF;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.show-container {
+    background-color:  #FFF1D6;
+    padding-bottom: 1.25rem;
+}
+
+.show-header {
+    width: 100%; 
+    height: 13.3125rem;
+    position: relative;
+}
+
+.post-cover {
+    width: 100%;
+    object-fit: cover;
+    height: 13.3125rem;
+    object-position: 0 50%;
+}
+
+.post-cover {
+    filter: brightness(50%);
+}
+
+.post-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3.5rem 10.6rem;
+
+}
+
+.post-category {
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.post-title {
+    color: #F0EAD2;
+    font-family: 'EB Garamond', sans-serif;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: -0.7rem;
+}
+
+.creation-infos {
+    display: flex;
+    gap: 1rem;
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.show-body {
+    margin-left: 10.6rem;
+    margin-right: 24rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.post-content {
+    color:  #463F3A;
+    font-family: EB Garamond;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    white-space: pre-line;
+}

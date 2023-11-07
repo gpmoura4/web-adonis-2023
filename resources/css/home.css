@@ -1,0 +1,384 @@
+@font-face {
+    font-family: 'Jack Pirate';
+    src: url('/resources/fonts/JackPirate.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    background-color: #463F3A;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 10.6rem;
+}
+  
+.logo > a > img{
+    width: 6.125rem;
+    height: 3.5rem;
+    width: 100%;
+}
+  
+  
+.menu {
+    display: flex;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    ;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu > li > a{
+    text-decoration: none;
+    margin-left: 2.44rem;
+    color: #FFE1A8;
+    transition: 200ms;
+}
+
+.menu > li > a:hover{
+    color: #FFF1D6;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.carret-down {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.login-button {
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    transition: 250ms;
+}
+
+.login-button:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+/* .select-btn {
+
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+
+    transition: 250ms;
+}
+
+.select-btn:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.sBtn-text {
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    width: 100%;
+} */
+
+.select-menu {
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    transition: 250ms;
+    display: flex;
+    align-items: center;
+}
+
+.select-menu:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.select-btn {
+    width: 100%; /* Ocupa toda a largura do select-menu */
+    overflow: hidden; /* Oculta qualquer texto que transbordar o elemento */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber no elemento */
+}
+  
+.sBtn-text {
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    padding: 1rem;
+}
+  
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #463F3A;
+    padding: 1.25rem 0;
+}
+
+footer > img {
+    width: 6.125rem;
+    height: 3.5rem;
+}
+
+footer > p {
+    color: #FFF;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.hero {
+    height: 27.25rem;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.user-call{ 
+    padding-top: 5rem;  
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10.6rem;
+}
+
+.text-call {
+    text-align: right;
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: lighter;
+    color: #472D30;
+    padding-bottom: 2.5rem;
+}
+
+.user-call > a > button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    width: 13.625rem;
+    height: 2.375rem;
+    color: #463F3A;
+    border-radius: 0.875rem;
+    border: 2px solid #463F3A;
+    background: #FFE1A8;
+    transition: 200ms;
+}
+
+.user-call > a > button:hover {
+    cursor: pointer;
+    background-color: #FFF1D6;
+}
+
+.about {
+    position: absolute;
+    top: 23rem;
+    height: 34.125rem;
+    width: 100%;
+    background: linear-gradient( rgba(0, 0, 0, 0), #472D30 30%);
+    z-index: 1;
+}
+
+.about > h1 {
+    color: #FFE1A8;
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: normal;
+    margin-top: 13rem;
+    padding-left: 10.6rem;
+    padding-bottom: 0.5rem;
+} 
+
+.about > p {
+    width: 73rem;
+    padding-left: 10.6rem;
+    color: #FFF1D6;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+
+.new-posts {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    margin-top: 18rem;
+    background-color: #FFF1D6;
+    padding-left: 10.6rem;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.new-posts > h1 {
+    color: #463F3A;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    width: 74rem;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.post > ul {
+    list-style: none;
+}
+
+.post-details {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    align-items: center;
+}
+
+.post-img {
+    width: 250px;
+    height: 161px;
+    border-radius: 2rem;
+    background: #D9D9D9;
+}
+
+.post-infos {
+    height: 80%;
+    width: 50rem;
+}
+
+.post-infos > a {
+    text-decoration: none;
+}
+
+.post-title {
+    color:#2C1A11;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transition: 200ms;
+}
+
+.post-title:hover {
+    color: #472D30;
+}
+
+.post-author {
+    color: #2C1A11;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.post-resume {
+    color: #463F3A;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 0.3rem;
+}
+
+.post-category {
+    background-color: #472D30;
+    font-family: Montserrat;
+    color: #FFE1A8;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 0.5rem;
+    width: 100px;
+    height: 30px;
+}
+.more-posts {
+    background-color: #FFF1D6;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+}
+
+.more-posts > a > button {
+    background-color: #2C1A11;
+    width: 140px;
+    height: 40px;
+    border-radius: 0.5625rem;
+    border: none;
+    color: #F0EAD2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transition: transform 250ms;
+}
+
+.more-posts > a > button:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+
+
+  
+
+
+  
+  

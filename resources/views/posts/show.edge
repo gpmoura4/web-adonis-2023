@@ -1,8 +1,25 @@
 @layout('layouts/main')
-@set('title', post.title)
-@set('subtitle', user.email)
 @set('pageName', post.title)
 
 @section('body')
-    <p>{{ post.content }}</p>
+    @entryPointStyles('posts-show')
+    <div class="show-container">
+        <div class="show-header">
+            <div class="image-cover">
+                <img src="/images/creation_of_adam.jpg" alt="Capa da Publicação" class="post-cover">
+
+            </div>
+            <div class="post-details">
+                <div class="post-category"> {{ post.category }} </div>
+                <div class="post-title"> {{ post.title }} </div>
+                <div class="creation-infos">
+                    <div class="post-author"> {{ user.email }} </div> | 
+                    <div class="post-date"> {{ post.createdAt }} </div>
+                </div>
+            </div>
+        </div>
+        <div class="show-body">
+            <div class="post-content"> {{{ post.content }}} </div>
+        </div>
+    </div>
 @end

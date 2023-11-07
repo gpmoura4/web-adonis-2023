@@ -6,15 +6,17 @@ import User from 'App/Models/User'
 export default class PostsController {
     public async index({ view, auth }: HttpContextContract) {
         const posts = await Post.all()
-        return view.render('posts/index', { posts })
+        const users = await User.all()
+
+        return view.render('posts/index', { posts, users })
     }
 
-    public async create({}: HttpContextContract) {
-        return view.render('posts/create')
+    public async create({ auth }: HttpContextContract) {
+        return view.render('posts/create', { auth })
     }
   
     public async store({ request, response, auth }: HttpContextContract) {
-        const data = await request.only(['title', 'content'])
+        const data = await request.only(['title', 'content', 'category', 'summary'])
         const author = auth.user.id
         const post = await Post.create({ user_id: author, ...data})
         const dataUsers = await User.all() 
@@ -24,6 +26,10 @@ export default class PostsController {
     public async show({ params, view }: HttpContextContract) {
         const post = await Post.findOrFail(params.id)
         const user = await User.find(post.user_id)
+        const { DateTime } = require('luxon')
+
+        post.createdAt = DateTime.fromISO(post.createdAt).toLocaleString({month: '2-digit', day: '2-digit', year: 'numeric'});
+
         return view.render('posts/show', {post: post, user: user})
     }
   

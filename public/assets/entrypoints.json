@@ -7,6 +7,38 @@
       "js": [
         "http://localhost:8080/assets/app.js"
       ]
+    },
+    "home": {
+      "css": [
+        "http://localhost:8080/assets/home.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/home.js"
+      ]
+    },
+    "posts-index": {
+      "css": [
+        "http://localhost:8080/assets/posts-index.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts-index.js"
+      ]
+    },
+    "posts-create": {
+      "css": [
+        "http://localhost:8080/assets/posts-create.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts-create.js"
+      ]
+    },
+    "posts-show": {
+      "css": [
+        "http://localhost:8080/assets/posts-show.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts-show.js"
+      ]
     }
   }
 }

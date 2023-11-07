@@ -1,0 +1,29 @@
+<header>
+    <div class="logo">
+        <a href="{{ route('home') }}"><img src="/images/agora.png" alt="Ágora Logo"></a>
+    </div>  
+    
+    <nav>
+        <ul class="menu">
+            <li> <a href="{{ route('PostsController.index') }}"> PUBLICAÇÕES </a></li>
+            <li> <a href=""> ARTIGOS </a></li>
+            <li> <a href=""> REVIEWS </a></li>
+            <li> <a href=""> SOBRE NÓS </a></li>
+        </ul>
+    </nav>
+
+    <div class="user-options">
+        @if (!auth.isLoggedIn)
+            <div class="login">
+                <a href="{{ route('sessions.create') }}"> <button class="login-button"> LOGIN </button> </a>
+            </div>
+        @else
+            <div class="select-menu">
+                <div class="select-btn">
+                    <span class="sBtn-text"> {{ auth.user.email }} </span>
+                </div>
+            </div>
+
+        @endif
+    </div>
+</header>

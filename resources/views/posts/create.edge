@@ -1,14 +1,35 @@
 @layout('layouts/main')
-@set('title', 'Crie um novo post')
-@set('subtitle', 'Compartilhe algo novo')
 @set('pageName', 'Novo Post')
 
 @section('body')
-    <form action="{{ route('PostsController.store') }}" method="POST">
-        <label for="title">Título</label><br>
-        <input type="text" class="post-title" name="title" id="post-title-id"><br>
-        {{--  <label for="post-content">Conteúdo</label>  --}}
-        <textarea name="content" id="post-content-id" class="post-content" cols="30" rows="10" placeholder="O que você está pensando?"></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
+    @entryPointStyles('posts-create')
+    <div class="form-container">
+        <h1>NOVA PUBLICAÇÃO</h1>
+        <form action="{{ route('PostsController.store') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-options">
+                <div class="choices">
+                    <div class="upload-image">
+                        <img src="/icons/image-upload.svg" alt="Upload Image">
+                        <label for="image-upload" class="image-label">Selecionar Capa</label>
+                        <input type="file" name="image-upload" accept="image/*" id="image-upload" class="upload-button"/>
+                    </div>
+                    <div class="category">
+                        <label for="category" class="select-label">Categoria:</label>
+                        <select name="category" id="category" class="select-category">
+                            <option value="Artigo">Artigo</option>
+                            <option value="Review">Review</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="publish">
+                    <button type="submit">Enviar</button>
+                </div>
+            </div>
+            <div class="form-content">
+                <input type="text" class="post-title" name="title" id="post-title-id" placeholder="Título">
+                <textarea name="content" id="post-content-id" class="post-content" cols="30" rows="10" placeholder="Sobre o que voce quer falar?"></textarea>
+                <textarea name="summary" id="summary-id" class="summary" cols="30" rows="10" placeholder="Faça um breve resumo sobre sua publicação"></textarea>
+            </div>
+        </form>
+    </div>
 @end

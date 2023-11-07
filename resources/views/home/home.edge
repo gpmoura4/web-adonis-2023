@@ -1,0 +1,47 @@
+@layout('layouts/main')
+@set('pageName', 'Ágora')
+
+@section('body')
+    @entryPointStyles('home')
+    <div class="hero">
+        <div class="img-container">
+            <img src="/images/Paul-at-the-Areopagus-of-Athens-A9-copy.png" alt="Pintura - Paulo no Areópago de Atenas" class="hero-image">
+        </div>
+        <div class="user-call">
+            <div class="text-call"> Explore a jornada de fé, ciência e teologia </div>
+            @if(auth.isLoggedIn)
+            <a href="{{ route('PostsController.create') }}"><button>COMECE A ESCREVER</button></a>
+            @else
+            <a href="{{ route('PostsController.create') }}"><button>COMECE A ESCREVER</button></a>
+            @endif
+        </div>
+    </div>
+
+    <div class="about">
+        <h1>Where does it come from?</h1>
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+    </div>
+
+    <div class="new-posts">
+        <h1>PUBLICAÇÕES RECENTES</h1>
+        <div class="post">
+            <ul>
+                @each(post in posts)
+                    <li class="post-details">
+                        <div class="post-img">
+                        </div>
+                        <div class="post-infos">
+                            <a href="{{ route("post.show", {id:`${post.id}`}) }}"> <div class="post-title"> {{ post.title }} </div> </a>
+                            <div class="post-author"> {{ users.find(user => user.id === post.user_id).email }} </div>
+                            <div class="post-resume"> {{ post.summary }} </div>
+                            <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
+                        </div>
+                    </li>
+                @end
+            </ul>
+        </div>
+    </div>
+    <div class="more-posts">
+        <a href="{{ route('PostsController.create') }}"><button> VER MAIS </button></a>
+    </div>
+@endsection

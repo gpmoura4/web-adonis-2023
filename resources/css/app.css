@@ -1,76 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-html, body {
-  background-color: #F7F8FA;
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  color: #46444c;
-  position: relative;
-}
-
-body:before {
-  content: '';
-  background: #5A45FF;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  position: absolute;
+@font-face {
+  font-family: 'Jack Pirate';
+  src: url('/resources/fonts/JackPirate.ttf') format('truetype');
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #5A45FF;
-  text-decoration: none;
-}
-
-main {
-  max-width: 620px;
-  margin: auto;
-  height: 100vh;
-  padding: 0 30px;
-  align-items: center;
+header {
+  background-color: #463F3A;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 10.6rem;
 }
 
-.title {
-  font-size: 50px;
-  line-height: 50px;
-  margin-bottom: 10px;
-  color: #17161A;
+.logo {
+  font-family: 'Jack Pirate';
+  font-size: 2rem;
+  color: white;
 }
 
-.subtitle {
-  font-size: 26px;
-  margin-bottom: 40px;
-}
 
-p {
-  margin-bottom: 20px;
-}
-
-main ul {
+.menu {
+  display: flex;
   list-style: none;
+  font-family: Montserrat;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-main li {
-  margin-bottom: 5px;
-  position: relative;
-  padding-left: 25px;
+.menu > li > a{
+  text-decoration: none;
+  margin-left: 2.44rem;
+  color: #FFE1A8;
 }
 
-main li:before {
-  content: '—';
-  position: absolute;
-  left: 0;
+.menu > li > a:hover{
+  color: #FFF1D6;
+  transition: 200ms;
 }
 
-main code {
-  font-size: 16px;
-  background: #e6e2ff;
-}
+

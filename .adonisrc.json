@@ -24,7 +24,8 @@
     "@adonisjs/view",
     "@adonisjs/shield",
     "@adonisjs/lucid",
-    "@adonisjs/auth"
+    "@adonisjs/auth",
+    "@adonisjs/attachment-lite"
   ],
   "metaFiles": [
     {
@@ -32,6 +33,7 @@
       "reloadServer": false
     },
     {
+      
       "pattern": "resources/views/**/*.edge",
       "reloadServer": false
     }
