@@ -4,11 +4,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 // import controller from 'app/Controllers/ Http/DataUsersController'
 
 // HOME
-Route.get('/', async ({ view }: HttpContextContract) => {
-  return view.render('welcome')
-})
-Route.post('/', 'DataUsersController.store')
-
+Route.get('/', 'HomeController.index').as('home')
 
 // LOGIN ROUTES
 Route.get('/login', 'SessionsController.create').as('sessions.create')
