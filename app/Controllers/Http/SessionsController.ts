@@ -5,7 +5,7 @@ export default class SessionsController {
     public async create({ view, auth }: HttpContextContract) {
         return view.render('sessions/create')
     }
-    public async postContent({ auth, view, response, request }) {
+    public async store({ auth, view, response, request }) {
         // PEGANDO TODO O ARRAY DE OBJETOS DE DADOS DO USER
         const dataUsers = await Document.all()
         // PEGANDO O VALOR DO INPUT DO INDEX
