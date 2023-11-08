@@ -4,9 +4,7 @@
 @set('pageName', 'Login Page')
 
 @section('body')
-    {{--  <form action= " {{ route('sessions.postcontent') }} " method="POST">  --}}
     <form action= " {{ route('SessionsController.store') }} " method="POST">
-    {{--  <form action= "  " method="POST">  --}}
         <label for="email-input-name">insira seu email</label><br>
         <input class="email-input" id="email-input-id" name="email-input-name" type="email"><br>
         <label for="passw-input-name">insira sua senha</label><br>

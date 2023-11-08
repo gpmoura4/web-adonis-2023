@@ -8,7 +8,7 @@ Route.get('/', 'HomeController.index').as('home')
 
 // LOGIN ROUTES
 Route.get('/login', 'SessionsController.create').as('sessions.create')
-Route.post('/login', 'SessionsController.postContent').as('sessions.postContent')
+Route.post('/login', 'SessionsController.store').as('sessions.store')
 Route.get('/logout', 'SessionsController.logout').as('sessions.logout')
 
 // INDEX and SHOW USERS ROUTES
