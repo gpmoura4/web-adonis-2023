@@ -1,20 +1,46 @@
-@layout('layouts/main')
-@set('title', 'Login')
-@set('subtitle', 'Preencha com seus dados')
-@set('pageName', 'Login Page')
-
-@section('body')
-    {{--  <form action= " {{ route('sessions.postcontent') }} " method="POST">  --}}
-    <form action= " {{ route('SessionsController.store') }} " method="POST">
-    {{--  <form action= "  " method="POST">  --}}
-        <label for="email-input-name">insira seu email</label><br>
-        <input class="email-input" id="email-input-id" name="email-input-name" type="email"><br>
-        <label for="passw-input-name">insira sua senha</label><br>
-        <input class="passw-input" id="passw-input-id" name="passw-input-name" type="password"><br>
-        <br>
-        <button type="submit">Entrar</button>
-
-    </form>
-@end
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ágora</title>
+  @entryPointStyles('login')
+  @entryPointScripts('app')
+</head>
+<body>
+  <main>
+    <div class="form-box">
+      <div class="image-box">
+        <img src="/images/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg" alt="Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee">
+        <div class="user-call">
+          <img src="/images/agora.png" alt="Ágora Logo">
+            <div class="text-call">
+              <h1>Bem vindo novamente!</h1>
+              <h2>Continue sua jornada de conhecimento em fé e ciência.</h2>
+            </div>
+        </div>
+      </div>
+      <div class="form-content">
+        <form action= " {{ route('SessionsController.store') }} " method="POST">
+          <div class="form-title">LOGIN</div>
+          <div class="email-box">
+            <img src="/icons/envelope.png" alt="Email Icon">
+            <input class="email-input" id="email-input-id" name="email-input-name" type="email" placeholder="Informe seu email">
+          </div>
+          <div class="password-box">
+            <img src="/icons/lock.png" alt="Email Icon">
+            <input class="passw-input" id="passw-input-id" name="passw-input-name" type="passw" placeholder="Informe sua senha">
+          </div>
+          <div class="create-account">
+            <div class="dont-have">Ainda não tem uma conta?</div>
+            <a href=" {{ route('DataUsersController.store') }} " class="create-now">Crie agora</a>
+          </div>
+          <div class="button-container">
+            <button type="submit" class="login-button">Entrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
