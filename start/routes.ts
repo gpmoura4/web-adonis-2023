@@ -7,8 +7,8 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 Route.get('/', 'HomeController.index').as('home')
 
 Route.get('/cadastrar', async ({ view }: HttpContextContract) => {
-  return view.render('welcome')
-})
+  return view.render('users/create')
+}).as("cadastrar")
 
 Route.post('/', 'DataUsersController.store')
 
