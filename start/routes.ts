@@ -15,17 +15,11 @@ Route.get('/logout', 'SessionsController.logout').as('sessions.logout')
 Route.group(() => {
   Route.get('/', 'DataUsersController.index').as('index')
   Route.get('/:id', 'DataUsersController.show').as('show')
+  Route.post('/', 'DataUsersController.store').as('store')
 })
   .prefix('/users-data')
   .middleware('auth')
   .as('users-data')
-
-Route.get('/leave', async ({ view }: HttpContextContract) => {
-  return view.render('leave')
-}).as('leave')
-
-Route.post('/', 'DataUsersController.postContent')
-
 
 Route.group(() =>{
   Route.get('/', 'PostsController.index').as('index')
@@ -36,3 +30,8 @@ Route.group(() =>{
   .prefix('/post')
   .middleware('auth')
   .as('post')
+
+
+Route.get('/leave', async ({ view }: HttpContextContract) => {
+  return view.render('sessions/leave')
+}).as('leave')
