@@ -124,7 +124,7 @@ export default class DataUsersController {
             rules.maxLength(25),
             // rules.trim(),
             rules.escape(),
-            rules.regex(/^[A-Z][a-zA-Z ]*$/)
+            rules.regex(/^[A-ZÁÀÃÉÈÍÌÓÒÔÕÚÙÇa-záàãéèíìóòôõúùç ]*$/)
         ]),
         last_name: schema.string([
             rules.alpha(),
@@ -132,7 +132,7 @@ export default class DataUsersController {
             rules.maxLength(25),
             rules.trim(),
             rules.escape(),
-            rules.regex(/^[A-Z][a-zA-Z ]*$/)
+            rules.regex(/^[A-ZÁÀÃÉÈÍÌÓÒÔÕÚÙÇa-záàãéèíìóòôõúùç ]*$/)
         ]),
         
         email: schema.string({trim:true}, [
