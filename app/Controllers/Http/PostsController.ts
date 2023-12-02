@@ -32,10 +32,34 @@ export default class PostsController {
 
         return view.render('posts/show', {post: post, user: user})
     }
-  
+
+    public async myPosts({ auth, params, view }: HttpContextContract) {
+        const author = auth.user.id
+        const authorName = auth.user.name
+        const posts = await Post.query().where("user_id" , author)
+
+        // const posts = await Post.findOrFail(params.id)
+        // const user = await User.find(posts.user_id)
+        // const { DateTime } = require('luxon')
+        // console.log(author)
+        // console.log(posts[0].content)
+        return view.render('posts/myPosts', {posts, authorName})
+    }
+
+
+    
     public async edit({}: HttpContextContract) {}
   
     public async update({}: HttpContextContract) {}
   
-    public async destroy({}: HttpContextContract) {}
+    public async destroy({ auth, params, view}: HttpContextContract) {
+        const post = await Post.findOrFail(params.id)
+        const authorName = await auth.user.name
+        if(post.user_id == auth.user.id){
+          await post.delete()
+        }
+    
+        return view.render('posts/myPosts', {authorName} );
+    
+      }
 }

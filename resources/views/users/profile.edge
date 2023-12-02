@@ -9,8 +9,12 @@
         <p>Sobrenome: {{auth.user.last_name}}</p>
         <p>Email: {{auth.user.email}}</p>
         <p>ID: {{auth.user.id}}</p>
-        <a href="{{ route('DataUsersController.edit', {id: auth.user.id}) }}">
+        <a href="{{ route('post.myPosts') }}">
+            Meus posts</a><br>
+        <a href="{{ route('user.edit', {id: auth.user.id}) }}">
             Editar Dados</a><br>
+        <a href="{{ route('user.destroy', {id: auth.user.id}) }}">
+            Apagar conta</a><br>
     @endif
 
 
