@@ -7,8 +7,8 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 Route.get('/', 'HomeController.index').as('home')
 
 Route.get('/cadastrar', async ({ view }: HttpContextContract) => {
-  return view.render('welcome')
-})
+  return view.render('users/create')
+}).as("cadastrar")
 
 Route.post('/', 'DataUsersController.store')
 
@@ -20,20 +20,11 @@ Route.get('/logout', 'SessionsController.logout').as('sessions.logout')
 // INDEX and SHOW USERS ROUTES
 Route.group(() => {
   Route.get('/', 'DataUsersController.index').as('index')
-  // Route.get('/:id', 'DataUsersController.show').as('show')
-  Route.get('/:id/edit', 'DataUsersController.edit').as('edit')
-  Route.post('/:id', 'DataUsersController.update').as('update')
+  Route.get('/:id', 'DataUsersController.show').as('show')
 })
   .prefix('/user')
   .middleware('auth')
   .as('user')
-
-Route.get('/leave', async ({ view }: HttpContextContract) => {
-  return view.render('leave')
-}).as('leave')
-
-
-
 
 Route.group(() =>{
   Route.get('/', 'PostsController.index').as('index')
@@ -44,3 +35,8 @@ Route.group(() =>{
   .prefix('/post')
   .middleware('auth')
   .as('post')
+
+
+Route.get('/leave', async ({ view }: HttpContextContract) => {
+  return view.render('sessions/leave')
+}).as('leave')

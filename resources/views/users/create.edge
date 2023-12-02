@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ágora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  @entryPointStyles('login')
+  @entryPointScripts('app')
+</head>
+<body>
+  <main>
+    <div class="form-box">
+      <div class="form-register">
+        <form action="/" method="POST" >
+          Nome: 
+          <input type="text" name="name" 
+          {{(flashMessages.has('errors.name'))}} 
+          >
+          <br>
+          Sobrenome: 
+          <input type="text" name="last_name" 
+          {{(flashMessages.has('errors.last_name'))}} 
+          >
+          <br>
+          Email: 
+          <input type="email" name="email" 
+          {{(flashMessages.has('errors.email'))}} 
+          >
+          <br>
+          Senha: 
+          <input type="password" name="password"
+          {{(flashMessages.has('errors.password'))}} 
+          >
+          <br>
+          <button type="submit">Cadastrar</button>
+  
+          @if(flashMessages.has('errors.name'))
+            <p>
+              {{ flashMessages.get('errors.name')[0]  }}
+            </p>
+          @endif
+          @if(flashMessages.has('errors.last_name'))
+            <p>
+              {{ flashMessages.get('errors.last_name')[0]  }}
+            </p>
+          @endif
+          @if(flashMessages.has('errors.email'))
+            <p>
+              {{ flashMessages.get('errors.email')[0]  }}
+            </p>
+          @endif
+  
+          @if(flashMessages.has('errors.password'))
+            <p>
+              {{ flashMessages.get('errors.password')[0] }} 
+            </p>
+          @endif
+        </form>    
+      </div>
+      <div class="register-image-box">
+        <img src="/images/ceilling_versailles.png" alt="Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee">
+        <div class="user-call">
+          <img src="/images/agora.png" alt="Ágora Logo">
+            <div class="text-call">
+              <h1>Bem-Vindo!</h1>
+              <h2>Ao seu novo local favorito para discussões sobre fé, ciência e teologia.</h2>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
