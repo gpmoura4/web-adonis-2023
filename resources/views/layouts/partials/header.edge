@@ -15,7 +15,7 @@
     <div class="user-options">
         @if (!auth.isLoggedIn)
             <div class="login">
-                <a href="{{ route('sessions.create') }}"> <button class="login-button"> LOGIN </button> </a>
+                <a href="{{ route('sessions.login') }}"> <button class="login-button"> LOGIN </button> </a>
             </div>
         @else
             <div class="select-menu">
