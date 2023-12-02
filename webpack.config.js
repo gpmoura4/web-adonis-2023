@@ -52,6 +52,7 @@ Encore.addEntry('posts-create', './resources/css/posts-create.css')
 Encore.addEntry('posts-show', './resources/css/posts-show.css')
 Encore.addEntry('login', './resources/css/login.css')
 
+
 /*
 |--------------------------------------------------------------------------
 | Copy assets
