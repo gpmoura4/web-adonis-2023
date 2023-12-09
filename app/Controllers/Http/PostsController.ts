@@ -38,16 +38,9 @@ export default class PostsController {
         const authorName = auth.user.name
         const posts = await Post.query().where("user_id" , author)
 
-        // const posts = await Post.findOrFail(params.id)
-        // const user = await User.find(posts.user_id)
-        // const { DateTime } = require('luxon')
-        // console.log(author)
-        // console.log(posts[0].content)
         return view.render('posts/myPosts', {posts, authorName})
     }
 
-
-    
     public async edit({}: HttpContextContract) {}
   
     public async update({}: HttpContextContract) {}
