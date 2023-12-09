@@ -53,6 +53,25 @@ export default class PostsController {
         }
     
         return view.render('posts/myPosts', {authorName} );
+    }
+
+    public async like({ params }: HttpContextContract) {
+        const post = await Post.findOrFail(params.id)
+        const user = await User.findOrFail(1)
+        const liked = await Post.liked(User)
+        var like_flag
+
+        if (liked) {
+            await user.related('likedPosts').detach([post.id])
+        
+            like_flag = false
+        } else {
+            await user.related('likedPosts').attach([post.id])
+        
+            like_flag = true
+        }
     
-      }
+        return { id: post.id, liked: like_flag }
+    }
+
 }

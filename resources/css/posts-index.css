@@ -194,3 +194,15 @@ footer > p {
     width: 100px;
     height: 30px;
 }
+
+.post-like {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.like-button {
+    width: 1.3125rem;
+    height: 1.3125rem;
+    fill: #472D30;
+}
