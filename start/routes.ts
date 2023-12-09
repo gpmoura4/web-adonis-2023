@@ -10,26 +10,33 @@ Route.get('/cadastrar', async ({ view }: HttpContextContract) => {
   return view.render('users/create')
 }).as("cadastrar")
 
-Route.post('/', 'DataUsersController.store')
+
 
 // LOGIN ROUTES
-Route.get('/login', 'SessionsController.create').as('sessions.create')
+Route.get('/login', 'SessionsController.create').as('sessions.login')
 Route.post('/login', 'SessionsController.store').as('sessions.store')
 Route.get('/logout', 'SessionsController.logout').as('sessions.logout')
 
 // INDEX and SHOW USERS ROUTES
 Route.group(() => {
-  Route.get('/', 'DataUsersController.index').as('index')
-  Route.get('/:id', 'DataUsersController.show').as('show')
+  Route.get('/', 'DataUsersController.show').as('show')
+  Route.post('/criarUsuario', 'DataUsersController.store').as('store')
+  Route.get('/editar', 'DataUsersController.edit').as('edit')
+  Route.post('/alterarDados', 'DataUsersController.update').as('update')
+  Route.get('/apagarUsuario/:id', 'DataUsersController.destroy').as('destroy')
+  // Route.get('/:id', 'DataUsersController.show').as('show')
 })
   .prefix('/user')
   .middleware('auth')
   .as('user')
 
+// POST ROUTES
 Route.group(() =>{
   Route.get('/', 'PostsController.index').as('index')
   Route.get('/novo', 'PostsController.create').as('create')
   Route.get('/:id', 'PostsController.show').as('show').where('id', /^[0-9]+$/)
+  Route.get('/meusPosts', 'PostsController.myPosts').as('myPosts')
+  Route.delete('/apagarPost/:id', 'PostsController.destroy').as('destroy')
   Route.post('/', 'PostsController.store').as('store')
 })
   .prefix('/post')

@@ -1,0 +1,36 @@
+@layout('layouts/main')
+@set('pageName', 'Ágora')
+
+@section('body')
+    @entryPointStyles('posts-index')
+    <div class="posts">
+        <div class="title-head">
+        
+        <h1>Posts do {{authorName}}</h1>
+        </div>
+        <div class="post">
+            <ul>
+                @each(post in posts)
+                    <li class="post-details">
+                        <div class="post-img">
+                        </div>
+                        <div class="post-infos">
+                            <a href="{{ route("post.show", {id:`${post.id}`}) }}"> <div class="post-title"> {{ post.title }} </div> </a>              
+                            <div class="post-author"> {{ authorName }} </div>
+                            <div class="post-resume"> {{ post.summary }} </div>
+                            <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
+                            <a href="
+                            {{
+                            route('post.destroy', {id:`${post.id}`})  
+                            }}">
+                                <button class="post-category"> 
+                                    Apagar Post 
+                                </button> 
+                                </a>
+                        </div>
+                    </li>
+                @end
+            </ul>
+        </div>
+    </div>
+@end

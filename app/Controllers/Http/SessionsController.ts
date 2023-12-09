@@ -3,7 +3,7 @@ import Document from 'App/Models/Document'
 
 export default class SessionsController {
     public async create({ view, auth }: HttpContextContract) {
-        return view.render('sessions/create')
+        return view.render('sessions/login')
     }
     public async store({ auth, view, response, request }) {
         // PEGANDO TODO O ARRAY DE OBJETOS DE DADOS DO USER
@@ -12,8 +12,8 @@ export default class SessionsController {
         let email = request.input('email-input-name');
         let passw = request.input('passw-input-name');
 
-        console.log(email)
-        console.log(passw)
+        // console.log(email)
+        // console.log(passw)
 
         try {
             await auth.use('web').attempt(email, passw)

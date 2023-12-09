@@ -17,7 +17,7 @@
   <main>
     <div class="form-box">
       <div class="form-register">
-        <form action="/" method="POST" >
+        <form action= " {{ route('user.store') }} " method="POST">
           Nome: 
           <input type="text" name="name" 
           {{(flashMessages.has('errors.name'))}} 

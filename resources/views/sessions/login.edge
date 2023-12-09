@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ágora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  @entryPointStyles('login')
+  @entryPointScripts('app')
+</head>
+<body>
+  <main>
+    <div class="form-box">
+      <div class="image-box">
+        <img src="/images/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg" alt="Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee">
+        <div class="user-call">
+          <img src="/images/agora.png" alt="Ágora Logo">
+            <div class="text-call">
+              <h1>Bem vindo novamente!</h1>
+              <h2>Continue sua jornada de conhecimento em fé e ciência.</h2>
+            </div>
+        </div>
+      </div>
+      <div class="form-login">
+        <form action= " {{ route('SessionsController.store') }} " method="POST">
+          <div class="form-title">LOGIN</div>
+          <div class="email-box">
+            <img src="/icons/envelope.png" alt="Email Icon">
+            <input class="email-input" id="email-input-id" name="email-input-name" type="email" placeholder="Informe seu email">
+          </div>
+          <div class="password-box">
+            <img src="/icons/lock.png" alt="Email Icon">
+            <input class="passw-input" id="passw-input-id" name="passw-input-name" type="password" placeholder="Informe sua senha">
+          </div>
+          <div class="create-account">
+            <div class="dont-have">Ainda não tem uma conta?</div>
+            <a href=" {{ route('cadastrar') }} " class="create-now">Crie agora</a>
+          </div>
+          <div class="button-container">
+            <button type="submit" class="login-button">Entrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
