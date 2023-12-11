@@ -17,14 +17,16 @@ Route.get('/login', 'SessionsController.create').as('sessions.login')
 Route.post('/login', 'SessionsController.store').as('sessions.store')
 Route.get('/logout', 'SessionsController.logout').as('sessions.logout')
 
+
+
+
 // INDEX and SHOW USERS ROUTES
+Route.post('/criarUsuario', 'DataUsersController.store').as('store')
 Route.group(() => {
   Route.get('/', 'DataUsersController.show').as('show')
-  Route.post('/criarUsuario', 'DataUsersController.store').as('store')
   Route.get('/editar', 'DataUsersController.edit').as('edit')
   Route.post('/alterarDados', 'DataUsersController.update').as('update')
   Route.get('/apagarUsuario/:id', 'DataUsersController.destroy').as('destroy')
-  // Route.get('/:id', 'DataUsersController.show').as('show')
 })
   .prefix('/user')
   .middleware('auth')
