@@ -58,6 +58,7 @@ export default class PostsController {
         if(post.user_id == auth.user.id){
           await post.delete()
         }
+        
     
         return view.render('posts/myPosts', {authorName} );
     
