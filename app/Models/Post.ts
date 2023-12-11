@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
-export default class Post extends BaseModel {
+export class Post extends BaseModel {
   @column({ isPrimary: true })
   public id: number
   
@@ -29,7 +29,7 @@ export default class Post extends BaseModel {
   })
   public likedUsers: ManyToMany<typeof User>
 
-  public static async liked(user: typeof User) {
+  public async liked(user: typeof User) {
     const post: Post = this
     await post.load('likedUsers')
 
@@ -42,7 +42,7 @@ export default class Post extends BaseModel {
     return false
   }
 
-    @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })

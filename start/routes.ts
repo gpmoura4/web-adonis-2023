@@ -38,6 +38,7 @@ Route.group(() =>{
   Route.get('/meusPosts', 'PostsController.myPosts').as('myPosts')
   Route.delete('/apagarPost/:id', 'PostsController.destroy').as('destroy')
   Route.post('/', 'PostsController.store').as('store')
+  Route.get('/favorito/:id', 'PostController.like').as('like')
 })
   .prefix('/post')
   .middleware('auth')

@@ -107,10 +107,7 @@ export default class DataUsersController {
         // ADICIONANDO O OBJETO NOVO
         dataUsers.push(dataUser);
 
-        // 
-
         return response.redirect().toRoute('sessions.login')
-        
     }
 
     // Aqui será a função para editar os dados do usuário

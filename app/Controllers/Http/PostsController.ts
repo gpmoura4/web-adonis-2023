@@ -1,6 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import view from '@ioc:Adonis/Core/View'
-import Post from 'App/Models/Post'
+import { Post } from 'App/Models/Post'
 import User from 'App/Models/User'
 
 export default class PostsController {
@@ -58,8 +58,8 @@ export default class PostsController {
     public async like({ params }: HttpContextContract) {
         const post = await Post.findOrFail(params.id)
         const user = await User.findOrFail(1)
-        const liked = await Post.liked(User)
-        var like_flag
+        const liked = await post.liked(User)
+        var like_flag: boolean
 
         if (liked) {
             await user.related('likedPosts').detach([post.id])
