@@ -26,7 +26,7 @@ export default class DataUsersController {
     
     /*Validando e criando nova conta*/
     public async store({ response, request, view }:HttpContextContract) {
-
+    console.log("----------------------------------------------------------------")
      // Validando
      const validationSchema = schema.create({
         name: schema.string([
@@ -105,7 +105,9 @@ export default class DataUsersController {
         })
         
         // ADICIONANDO O OBJETO NOVO
+        console.log("----------------------------------------------------------------")
         dataUsers.push(dataUser);
+        console.log("----------------------------------------------------------------")
 
         // 
 
@@ -219,8 +221,8 @@ export default class DataUsersController {
         // }
         
         const user = await User.find(auth.user.id)
-        await user.delete()
-    
+        user.delete()
+
         return view.render('sessions/login');
     
       }
