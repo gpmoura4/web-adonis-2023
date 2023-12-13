@@ -29,7 +29,7 @@ export class Post extends BaseModel {
   })
   public likedUsers: ManyToMany<typeof User>
 
-  public async liked(user: typeof User) {
+  public async liked(user: User) {
     const post: Post = this
     await post.load('likedUsers')
 

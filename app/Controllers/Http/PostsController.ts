@@ -59,7 +59,7 @@ export default class PostsController {
     public async like({ params }: HttpContextContract) {
         const post = await Post.findOrFail(params.id)
         const user = await User.findOrFail(1)
-        const liked = await post.liked(User)
+        const liked = await post.liked(user)
         var like_flag: boolean
 
         if (liked) {
