@@ -14,7 +14,7 @@
         <div class="post">
             <ul>
                 @each(post in posts)
-                    <li class="post-details">
+                    <li class="post-details" id="{{post.id}}">
                         <div class="post-img">
                         </div>
                         <div class="post-infos">
@@ -24,11 +24,87 @@
                             <div class="post-like">
                                 <a href=""><button disabled="disabled" class="post-category"> {{ post.category }} </button> </a>
                                 <a href="{{ route("post.like", {id:`${post.id}`}) }}"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512" class="like-button"><path d="M20.137,24a2.8,2.8,0,0,1-1.987-.835L12,17.051,5.85,23.169a2.8,2.8,0,0,1-3.095.609A2.8,2.8,0,0,1,1,21.154V5A5,5,0,0,1,6,0H18a5,5,0,0,1,5,5V21.154a2.8,2.8,0,0,1-1.751,2.624A2.867,2.867,0,0,1,20.137,24ZM6,2A3,3,0,0,0,3,5V21.154a.843.843,0,0,0,1.437.6h0L11.3,14.933a1,1,0,0,1,1.41,0l6.855,6.819a.843.843,0,0,0,1.437-.6V5a3,3,0,0,0-3-3Z"/></svg></a>
+                                
+                                {{--  <a id="likeButton" href="{{ route("post.like", {id:`${post.id}`}) }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512" class="like-button">
+                                      <path d="M20.137,24a2.8,2.8,0,0,1-1.987-.835L12,17.051,5.85,23.169a2.8,2.8,0,0,1-3.095.609A2.8,2.8,0,0,1,1,21.154V5A5,5,0,0,1,6,0H18a5,5,0,0,1,5,5V21.154a2.8,2.8,0,0,1-1.751,2.624A2.867,2.867,0,0,1,20.137,24ZM6,2A3,3,0,0,0,3,5V21.154a.843.843,0,0,0,1.437.6h0L11.3,14.933a1,1,0,0,1,1.41,0l6.855,6.819a.843.843,0,0,0,1.437-.6V5a3,3,0,0,0-3-3Z"/>
+                                    </svg>
+                                </a>  --}}
+
+                                {{--  <div class="container-buttons">
+                                    <div id="svg-like" style="{{ !liked ? '' : 'display: none;' }}">
+                                      <button class="like-button" onclick="likebutton('{{ route('post.like', {id:`${post.id}`}) }}' , {{ liked }})">
+                                        <svg viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#bababa"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"></g> <g id="Setting"></g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"> <path d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z" style = " {{ liked ? fill = '#FFFFFF' : fill = '#FFFFFF' }} "></path> </g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg>
+                                    </button>
+                                    </div>
+                                    <div style="{{ liked ? '' : 'display: none;' }}" id="svg-dislike">
+                                      <button class="" onclick="likebutton('{{ route('post.like', { id: post.id })}}', {{ liked }})">
+                                        <svg viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#F2BC1B"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"></g> <g id="Setting"></g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"> <path d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z" style = " {{ liked ? fill = '#FFFFFF' : fill = '#FFFFFF' }} "></path> </g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg>
+                                      </button>
+                                    </div>
+                                </div>
+                                
+                                <script>
+                                  window.document.onload = function(e) {
+                                  }
+                                
+                                  async function likebutton(url, favoritou) {
+                                    const button = document.getElementById('like')
+                                    const response = await fetch(url)
+                                
+                                    const data = await response.json()
+                                    let like = document.getElementById('svg-like');
+                                    let dislike = document.getElementById('svg-dislike');
+                                
+                                    if (dislike.style.display == 'none') {
+                                        like.style.display = 'none';
+                                        dislike.style.display = 'flex';
+                                    }
+                                    else if(like.style.display == 'none'){
+                                        dislike.style.display = 'none';
+                                        like.style.display = 'flex';
+                                    }
+                                  }
+                                </script>  --}}
+                                
                             </div>
                         </div>
                     </li>
                 @end
             </ul>
         </div>
+        {{--  <script>
+            // document.getElementById('likeButton').addEventListener('click', function(event) {
+            // event.preventDefault(); // Evita que o link seja seguido
+
+            // var likeButton = this;
+            // likeButton.querySelector('svg').classList.add('like-animation');
+
+            // // Simule o envio do formulário ou a requisição AJAX para "curtir" o post
+            // // Aqui você pode adicionar a lógica necessária para interagir com o backend
+
+            // // Aguarde um curto período de tempo antes de remover a classe para permitir que a animação seja concluída
+            // setTimeout(function() {
+            //     likeButton.querySelector('svg').classList.remove('like-animation');
+            // }, 500); // 500 milissegundos, correspondendo à duração da animação
+            // });
+            
+            // document.getElementById('likeButton').addEventListener('click', function(event) {
+            // event.preventDefault();
+
+            // var likeButton = this;
+            // var svgPath = likeButton.querySelector('svg path');
+
+            // // Adiciona a classe de animação
+            // svgPath.classList.add('like-animation');
+
+            // // Simula interação com o backend
+
+            // // Remove a classe após a animação ser concluída
+            // setTimeout(function() {
+            //     svgPath.classList.remove('like-animation');
+            // }, 500);
+            // });
+        </script>  --}}
     </div>
 @end

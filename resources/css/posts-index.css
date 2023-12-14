@@ -206,3 +206,33 @@ footer > p {
     height: 1.3125rem;
     fill: #472D30;
 }
+
+.like-animation {
+    animation: pulse 0.5s ease-in-out;
+  }
+  
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* .like-animation path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: fillAnimation 0.5s ease-in-out forwards;
+  } */
+  
+  /* @keyframes fillAnimation {
+    to {
+      stroke-dashoffset: 0;
+    }
+  } */
+  
+  

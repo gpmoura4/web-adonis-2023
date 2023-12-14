@@ -56,7 +56,7 @@ export default class PostsController {
         return view.render('posts/myPosts', {authorName} );
     }
 
-    public async like({ params }: HttpContextContract) {
+    public async like({ params, response }: HttpContextContract) {
         const post = await Post.findOrFail(params.id)
         const user = await User.findOrFail(1)
         const liked = await post.liked(user)
@@ -72,7 +72,8 @@ export default class PostsController {
             like_flag = true
         }
     
-        return { id: post.id, liked: like_flag }
+        // return { id: post.id, liked: like_flag }
+        return response.redirect().toRoute('post.index' , { liked })
     }
 
 }

@@ -48,5 +48,5 @@ Route.group(() =>{
 
 
 Route.get('/leave', async ({ view }: HttpContextContract) => {
-  return view.render('sessions/leave')
+  return view.render('home/home')
 }).as('leave')
