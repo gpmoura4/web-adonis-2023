@@ -284,3 +284,11 @@ footer > p {
     background-color: #ef7955;
     cursor: pointer;
 }
+
+.validator {
+    color: #E85C30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+}

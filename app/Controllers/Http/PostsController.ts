@@ -41,6 +41,7 @@ export default class PostsController {
         return view.render('posts/myPosts', {posts, authorName})
     }
 
+
     public async edit({}: HttpContextContract) {}
   
     public async update({}: HttpContextContract) {}
