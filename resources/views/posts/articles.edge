@@ -5,21 +5,18 @@
     @entryPointStyles('posts-index')
     <div class="posts">
         <div class="title-head">
+            {{--  <a href=" {{ route('post.create') }} ">
+                <button name="newPostButton" type="button"> Novo Post </button>
+            </a>  --}}
+        
         <h1>TODAS AS PUBLICAÇÕES</h1>
         </div>
-        <div id="scroller" style="position: relative;" class="post">
-            <div class="scroller-list">
+        <div class="post">
+            <ul>
                 @each(post in posts)
-                    <li class="post-details">
-                        @if(post.category == 'Artigo')
-                            <div class="post-img" style="width:300px; height:200px; background-image: url('images/book.jpeg'); background-size: cover; background-position: center;">
-                                <!-- Conteúdo dentro da div, se aplicável -->
-                            </div>                        
-                        @else
-                            <div class="post-img" style="width:300px; height:200px; background-image: url('images/artigo.jpg'); background-size: cover; background-position: center;">
-                                <!-- Conteúdo dentro da div, se aplicável -->
-                            </div>                        
-                        @endif
+                    <li class="post-details" id="{{post.id}}">
+                        <div class="post-img">
+                        </div>
                         <div class="post-infos">
                             <a href="{{ route("post.show", {id:`${post.id}`}) }}"> <div class="post-title"> {{ post.title }} </div> </a>              
                             <div class="post-author"> {{ users.find(user => user.id === post.user_id).email }} </div>
@@ -74,9 +71,7 @@
                         </div>
                     </li>
                 @end
-                {{--  @!component('components/post_list', {posts: page.rows, users})  --}}
-            </div>
-            <div class="scroller-buffer" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50vh; pointer-events: none" ></div>
+            </ul>
         </div>
         {{--  <script>
             // document.getElementById('likeButton').addEventListener('click', function(event) {
@@ -112,35 +107,4 @@
             // });
         </script>  --}}
     </div>
-
-    <script>
-        const scrollerList = document.querySelector('#scroller .scroller-list');
-        const scrollerBuffer = document.querySelector('#scroller .scroller-buffer');
-        const states = {
-            IDLE: 0,
-            WORKING: 1,
-            DONE: 2
-        }
-        
-        let state = states.IDLE;
-        let currentPage = {{page.currentPage}};
-    
-        const observer = new IntersectionObserver(entries =>{
-            entries.forEach(entry =>{
-                if(entry.isIntersecting){
-                    fetchNextPage()
-                }
-            })
-        });
-
-        observer.observe(scrollerBuffer)
-
-        async function fetchNextPage(){
-            if(state == states.WORKING) return
-            const nextPage = ++currentPage
-            const {html, page} = await fetch(`/api/posts/paginate/${nextPage}`).then(res => res.json())
-
-            scrollerList.innerHTML += html
-        }
-    </script>
 @end

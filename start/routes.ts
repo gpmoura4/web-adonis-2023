@@ -36,11 +36,14 @@ Route.group(() => {
 // POST ROUTES
 Route.group(() =>{
   Route.get('/', 'PostsController.index').as('index')
+  Route.get('/artigos', 'PostsController.articles').as('artigos')
+  Route.get('/reviews', 'PostsController.reviews').as('reviews')
   Route.get('/novo', 'PostsController.create').as('create')
   Route.get('/:id', 'PostsController.show').as('show').where('id', /^[0-9]+$/)
   Route.get('/meusPosts', 'PostsController.myPosts').as('myPosts')
   Route.delete('/apagarPost/:id', 'PostsController.destroy').as('destroy')
   Route.post('/', 'PostsController.store').as('store')
+  Route.get('/favorito/:id', 'PostsController.like').as('like')
 })
   .prefix('/post')
   .middleware('auth')
@@ -52,5 +55,5 @@ Route.group(() =>{
 Route.get('/api/posts/paginate/:page', 'PostsController.paginate').as('posts.paginante')
 
 Route.get('/leave', async ({ view }: HttpContextContract) => {
-  return view.render('sessions/leave')
+  return view.render('home/home')
 }).as('leave')

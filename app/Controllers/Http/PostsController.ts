@@ -1,6 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import view from '@ioc:Adonis/Core/View'
-import Post from 'App/Models/Post'
+import { Post } from 'App/Models/Post'
 import User from 'App/Models/User'
 
 export default class PostsController {
@@ -37,7 +37,7 @@ export default class PostsController {
         return view.render('posts/show', {post: post, user: user})
     }
 
-    public async myPosts({ auth, params, view }: HttpContextContract) {
+    public async myPosts({ auth, view }: HttpContextContract) {
         const author = auth.user.id
         const authorName = auth.user.name
         const posts = await Post.query().where("user_id" , author)
@@ -45,8 +45,20 @@ export default class PostsController {
         return view.render('posts/myPosts', {posts, authorName})
     }
 
+    public async articles({ view }: HttpContextContract) {
+        const posts = await Post.query().where("category" , "Artigo")
+        const users = await User.all()
 
-    
+        return view.render('posts/articles', { posts, users })
+    }
+
+    public async reviews({ view }: HttpContextContract) {
+        const posts = await Post.query().where("category" , "Review")
+        const users = await User.all()
+
+        return view.render('posts/reviews', { posts, users })
+    }
+
     public async edit({}: HttpContextContract) {}
   
     public async update({}: HttpContextContract) {}
@@ -67,4 +79,26 @@ export default class PostsController {
         
         return response.json({html,page})
     }
+    }
+
+    public async like({ params, response }: HttpContextContract) {
+        const post = await Post.findOrFail(params.id)
+        const user = await User.findOrFail(1)
+        const liked = await post.liked(user)
+        var like_flag: boolean
+
+        if (liked) {
+            await user.related('likedPosts').detach([post.id])
+        
+            like_flag = false
+        } else {
+            await user.related('likedPosts').attach([post.id])
+        
+            like_flag = true
+        }
+    
+        // return { id: post.id, liked: like_flag }
+        return response.redirect().toRoute('post.index' , { liked })
+    }
+
 }

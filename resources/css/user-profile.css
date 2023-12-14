@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'Jack Pirate';
+    src: url('/resources/fonts/JackPirate.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    background-color: #463F3A;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 10.6rem;
+}
+  
+.logo > a > img{
+    width: 6.125rem;
+    height: 3.5rem;
+    width: 100%;
+}
+  
+  
+.menu {
+    display: flex;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    ;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu > li > a{
+    text-decoration: none;
+    margin-left: 2.44rem;
+    color: #FFE1A8;
+    transition: 200ms;
+}
+
+.menu > li > a:hover{
+    color: #FFF1D6;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.carret-down {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.login-button {
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    color: #472D30;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    transition: 250ms;
+}
+
+.login-button:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+/* .select-btn {
+
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+
+    transition: 250ms;
+}
+
+.select-btn:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.sBtn-text {
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    width: 100%;
+} */
+
+.select-menu {
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    transition: 250ms;
+    display: flex;
+    align-items: center;
+}
+
+.select-menu:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.select-btn {
+    width: 100%; /* Ocupa toda a largura do select-menu */
+    overflow: hidden; /* Oculta qualquer texto que transbordar o elemento */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber no elemento */
+}
+  
+.sBtn-text {
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    padding: 1rem;
+}
+  
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #463F3A;
+    padding: 1.25rem 0;
+}
+
+footer > img {
+    width: 6.125rem;
+    height: 3.5rem;
+}
+
+footer > p {
+    color: #FFF;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.profile-body {
+    background: #FFF1D6;
+    width: 100%;
+    height: 40rem;
+}
+
+.profile-box {
+    width: 44.5625rem;
+    height: 35.5625rem;
+    border-radius: 2.75rem;
+    background: #fff2b2;
+    margin: 4rem 25.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-dados {
+    padding: 4.38rem 3rem;
+}
+
+.profile-title {
+    color: #463F3A;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.profile-info {
+    color: #2C1A11;
+    font-family: Montserrat;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.profile-value {
+    color: #2C1A11;
+    font-family: Montserrat;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    width: 27.1875rem;
+    height: 3.1875rem;
+    border-radius: 1rem;
+    background: #F8F6F1;
+    padding-left: 2rem;
+    padding-top: 0.75rem;
+    border: none;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 3rem;
+}
+
+
+
+.profile-delete {
+    width: 10.1875rem;
+    height: 3rem;
+    border-radius: 0.8125rem;
+    background: #E85C30;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+}
+
+.profile-edit > button{
+    width: 10.1875rem;
+    height: 3rem;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    transition: 250ms;
+}
+
+.profile-edit > button:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.profile-delete > button{
+    width: 10.1875rem;
+    height: 3rem;
+    border-radius: 0.8125rem;
+    background: #E85C30;
+    border: none;
+    color: #472D30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    transition: 250ms;
+}
+
+.profile-delete > button:hover {
+    background-color: #ef7955;
+    cursor: pointer;
+}
+
+.validator {
+    color: #E85C30;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+}
