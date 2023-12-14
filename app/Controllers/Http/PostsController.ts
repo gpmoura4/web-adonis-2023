@@ -79,7 +79,7 @@ export default class PostsController {
         
         return response.json({html,page})
     }
-    }
+    
 
     public async like({ params, response }: HttpContextContract) {
         const post = await Post.findOrFail(params.id)
