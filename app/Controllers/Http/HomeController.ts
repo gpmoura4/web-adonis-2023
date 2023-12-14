@@ -8,6 +8,12 @@ export default class HomeController {
     const posts = await Post.query().orderBy('created_at', 'desc').limit(3)
     const users = await User.all()
 
+    process.env.PORT = process.env.PORT;
+    const porta = process.env.PORT;
+
+    // Exiba o valor da variável de ambiente
+    console.log("Porta:", porta);
+
     return view.render('home/home', { posts, users, auth })
   }
 

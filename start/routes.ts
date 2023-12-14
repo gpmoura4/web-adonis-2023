@@ -4,6 +4,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 // import controller from 'app/Controllers/ Http/DataUsersController'
 
 
+
 Route.get('/', 'HomeController.index').as('home')
 
 Route.get('/cadastrar', async ({ view }: HttpContextContract) => {
@@ -45,6 +46,10 @@ Route.group(() =>{
   .middleware('auth')
   .as('post')
 
+
+
+
+Route.get('/api/posts/paginate/:page', 'PostsController.paginate').as('posts.paginante')
 
 Route.get('/leave', async ({ view }: HttpContextContract) => {
   return view.render('sessions/leave')

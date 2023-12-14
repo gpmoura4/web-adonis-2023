@@ -5,10 +5,18 @@
     @entryPointStyles('posts-show')
     <div class="show-container">
         <div class="show-header">
-            <div class="image-cover">
-                <img src="/images/creation_of_adam.jpg" alt="Capa da Publicação" class="post-cover">
+            @if(post.category == 'Artigo')
+                <div class="image-cover">
+                    <img src="/images/creation_of_adam.jpg" alt="Capa da Publicação" class="post-cover" >
 
-            </div>
+                </div>
+            @else
+                <div class="image-cover">
+                    <img src="/images/creation_of_adam.jpg" alt="Capa da Publicação" class="post-cover" >
+
+                </div>
+            @endif
+            
             <div class="post-details">
                 <div class="post-category"> {{ post.category }} </div>
                 <div class="post-title"> {{ post.title }} </div>
