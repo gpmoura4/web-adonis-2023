@@ -1,21 +1,40 @@
 @layout('layouts/main')
-@set('title', 'Meu Perfil')
-@set('subtitle', '')
-@set('pageName', 'Perfil')
+@set('pageName', 'Ágora')
 
 @section('body')
-    @if(auth.isLoggedIn)
-        <p>Nome: {{auth.user.name}} </p>
-        <p>Sobrenome: {{auth.user.last_name}}</p>
-        <p>Email: {{auth.user.email}}</p>
-        <p>ID: {{auth.user.id}}</p>
-        <a href="{{ route('post.myPosts') }}">
-            Meus posts</a><br>
-        <a href="{{ route('user.edit', {id: auth.user.id}) }}">
-            Editar Dados</a><br>
-        <a href="{{ route('user.destroy', {id: auth.user.id}) }}">
-            Apagar conta</a><br>
-    @endif
+    @entryPointStyles('user-profile')
+    <div class="profile-body">
+        <div class="profile-box">
+            @if(auth.isLoggedIn)
+            <div class="profile-dados">
+                <div class="profile-title">Meus Dados</div>
+                <div class="profile-line">
+                    <p class="profile-info">Nome:</p> <div class="profile-value">{{auth.user.name}}</div>
+                </div>
+                <div class="profile-line">
+                    <p class="profile-info">Sobrenome:</p> <div class="profile-value">{{auth.user.last_name}}</div>
+                </div>
+                <div class="profile-line">
+                    <p class="profile-info">Email:</p> <div class="profile-value">{{auth.user.email}}</div>
+                </div>
+                {{--  <div class="profile-line">
+                    <p class="profile-info">ID:</p> <div class="profile-value">{{auth.user.id}}</div>
+                </div>  --}}
 
-
+                <div class="profile-buttons">
+                    <a href="{{ route('user.edit', {id: auth.user.id}) }}">
+                        <div class="profile-edit">
+                            <button type="submit">Editar Dados</button>
+                        </div>
+                    </a>
+                    <a href="{{ route('user.destroy', {id: auth.user.id}) }}" class="profile-delete">
+                        <div class="profile-delete">
+                            <button type="submit">Apagar Conta</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
 @end

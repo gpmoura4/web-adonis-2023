@@ -47,6 +47,14 @@
       "js": [
         "http://localhost:8080/assets/login.js"
       ]
+    },
+    "user-profile": {
+      "css": [
+        "http://localhost:8080/assets/user-profile.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/user-profile.js"
+      ]
     }
   }
 }

@@ -51,7 +51,7 @@ Encore.addEntry('posts-index', './resources/css/posts-index.css')
 Encore.addEntry('posts-create', './resources/css/posts-create.css')
 Encore.addEntry('posts-show', './resources/css/posts-show.css')
 Encore.addEntry('login', './resources/css/login.css')
-
+Encore.addEntry('user-profile', './resources/css/user-profile.css')
 
 /*
 |--------------------------------------------------------------------------

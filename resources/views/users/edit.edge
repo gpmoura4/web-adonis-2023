@@ -1,54 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdonisJS - A fully featured web framework for Node.js</title>
-  @entryPointStyles('app')
-  @entryPointScripts('app')
-</head>
-<body>
+@layout('layouts/main')
+@set('pageName', 'Ágora')
 
-  <main>
-    <div>
-      <h1 class="title"> Edite seus dados! </h1>
-      {{--  Verificando  --}}
-      @if(auth.isLoggedIn)
-        <p>Nome: {{auth.user.name}} </p>
-        <p>Sobrenome: {{auth.user.last_name}}</p>
-        <p>Email: {{auth.user.email}}</p>
-        <p>ID: {{auth.user.id}}</p>
-    @endif
-
-      <form action="{{ route('DataUsersController.update',
-       {id: user.id }) }}" method="POST">
-      {{--  <form action="" method="POST">  --}}
-        Nome: 
-        <input type="text" name="name" 
-        value="{{ flashMessages.get('name')
-        || user.name }}"
-        {{(flashMessages.has('errors.name'))}} 
-        >
-        <br>
+@section('body')
+  @entryPointStyles('user-profile')
+  <div class="profile-body">
+    <form action="{{ route('DataUsersController.update', {id: user.id }) }}" method="POST" class="profile-box">
+      <div class="profile-dados">
+        <div class="profile-title">Editar Dados</div>
+        <div class="profile-line">
+          <div class="profile-info"> Nome: </div> 
+          
+          <input type="text" name="name" class="profile-value" value="{{ flashMessages.get('name') || user.name }}" {{(flashMessages.has('errors.name'))}} >
+        </div>
+        
         Sobrenome: 
-        <input type="text" name="last_name" 
-        value="{{ flashMessages.get('last_name')
-        || user.last_name }}"
-        {{(flashMessages.has('errors.last_name'))}} 
-        >
-        <br>
+        <input type="text" name="last_name" value="{{ flashMessages.get('last_name') || user.last_name }}" {{(flashMessages.has('errors.last_name'))}} >
         Email: 
-        <input type="email" name="email" 
-        value="{{ flashMessages.get('email')
-        || user.email }}"
-        {{(flashMessages.has('errors.email'))}} 
-        >
-        <br>
+        <input type="email" name="email" value="{{ flashMessages.get('email') || user.email }}" {{(flashMessages.has('errors.email'))}} >
         Senha: 
-        <input type="password" name="password"
-        {{(flashMessages.has('errors.password'))}} 
-        >
-        <br>
+        <input type="password" name="password" {{(flashMessages.has('errors.password'))}} >
+
         <button type="submit">Enviar</button>
 
         @if(flashMessages.has('errors.name'))
@@ -72,11 +43,10 @@
             {{ flashMessages.get('errors.password')[0] }} 
           </p>
         @endif
+      </div>
 
+    </form>
+    
+  </div>
+@end 
 
-      </form>
-      
-    </div>
-  </main>
-</body>
-</html>

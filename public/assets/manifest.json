@@ -11,5 +11,7 @@
   "assets/posts-show.js": "http://localhost:8080/assets/posts-show.js",
   "assets/login.css": "http://localhost:8080/assets/login.css",
   "assets/login.js": "http://localhost:8080/assets/login.js",
+  "assets/user-profile.css": "http://localhost:8080/assets/user-profile.css",
+  "assets/user-profile.js": "http://localhost:8080/assets/user-profile.js",
   "assets/fonts/JackPirate.ttf": "http://localhost:8080/assets/fonts/JackPirate.639e1df5.ttf"
 }
