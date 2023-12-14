@@ -7,6 +7,7 @@
         <div class="img-container">
             <img src="/images/Paul-at-the-Areopagus-of-Athens-A9-copy.png" alt="Pintura - Paulo no Areópago de Atenas" class="hero-image">
         </div>
+
         <div class="user-call">
             <div class="text-call"> Explore a jornada de fé, ciência e teologia </div>
             @if(auth.isLoggedIn)
@@ -28,8 +29,15 @@
             <ul>
                 @each(post in posts)
                     <li class="post-details">
-                        <div class="post-img">
-                        </div>
+                    @if(post.category == 'Artigo')
+                    <div class="post-img" style="width:300px; height:200px; background-image: url('images/book.jpeg'); background-size: cover; background-position: center;">
+                        <!-- Conteúdo dentro da div, se aplicável -->
+                    </div>                        
+                    @else
+                        <div class="post-img" style="width:300px; height:200px; background-image: url('images/artigo.jpg'); background-size: cover; background-position: center;">
+                            <!-- Conteúdo dentro da div, se aplicável -->
+                        </div>                        
+                    @endif
                         <div class="post-infos">
                             <a href="{{ route("post.show", {id:`${post.id}`}) }}"> <div class="post-title"> {{ post.title }} </div> </a>
                             <div class="post-author"> {{ users.find(user => user.id === post.user_id).email }} </div>

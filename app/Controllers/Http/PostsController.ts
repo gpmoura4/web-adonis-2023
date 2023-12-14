@@ -4,11 +4,15 @@ import Post from 'App/Models/Post'
 import User from 'App/Models/User'
 
 export default class PostsController {
+
+    private perPage = 3;
+
     public async index({ view, auth }: HttpContextContract) {
         const posts = await Post.all()
         const users = await User.all()
+        const page = await Post.query().paginate(1,this.perPage)
 
-        return view.render('posts/index', { posts, users })
+        return view.render('posts/index', { posts, users, page })
     }
 
     public async create({ auth }: HttpContextContract) {
@@ -38,11 +42,6 @@ export default class PostsController {
         const authorName = auth.user.name
         const posts = await Post.query().where("user_id" , author)
 
-        // const posts = await Post.findOrFail(params.id)
-        // const user = await User.find(posts.user_id)
-        // const { DateTime } = require('luxon')
-        // console.log(author)
-        // console.log(posts[0].content)
         return view.render('posts/myPosts', {posts, authorName})
     }
 
@@ -59,8 +58,13 @@ export default class PostsController {
           await post.delete()
         }
         
-    
         return view.render('posts/myPosts', {authorName} );
-    
       }
+
+    public async paginate({ response, params, view}: HttpContextContract) {
+        const page = await Post.query().paginate(params.page, this.perPage)
+        const html = await view.render('components/post_list', {posts: page})
+        
+        return response.json({html,page})
+    }
 }

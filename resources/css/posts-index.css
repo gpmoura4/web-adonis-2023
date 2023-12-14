@@ -11,7 +11,6 @@
     box-sizing: border-box;
 }
 
-
 header {
     background-color: #463F3A;
     width: 100%;
@@ -33,7 +32,6 @@ header {
     display: flex;
     list-style: none;
     font-family: 'Montserrat', sans-serif;
-    ;
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
@@ -51,15 +49,56 @@ header {
     color: #FFF1D6;
 }
 
-.select-menu {
-    width: 120px;
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.carret-down {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.login-button {
+    width: 300px;
     height: 40px;
+    border-radius: 13px;
+    background: #CB997E;
+    border: none;
+    color: #472D30;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    transition: 250ms;
+}
+
+.login-button:hover {
+    background-color: #BF805F;
+    cursor: pointer;
+}
+
+.select-menu {
+    position: absolute;
+    /* top: 12rem; */
+    right: 10rem;
+    z-index: 10;
+    width: 370px;
+    /* height: 100px; */
     border-radius: 13px;
     background: #CB997E;
     border: none;
     transition: 250ms;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
+    /* padding: 10px; */
 }
 
 .select-menu:hover {
@@ -67,20 +106,69 @@ header {
     cursor: pointer;
 }
 
-.select-btn {
-    width: 100%; /* Ocupa toda a largura do select-menu */
-    overflow: hidden; /* Oculta qualquer texto que transbordar o elemento */
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
-    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber no elemento */
+.select-menu .current-user{
+    font-size: 17px;
+    font-family: 'Montserrat',sans-serif;
+    color: #472D30;
 }
-  
+
+.select-btn i {
+    font-size: 20px;
+    transition: 0.3s;
+}
+
 .sBtn-text {
     color: #472D30;
     font-family: Montserrat;
     font-size: 1rem;
     font-style: normal;
     font-weight: 700;
-    padding: 1rem;
+    padding: 2px;
+    width:100%;
+    /* display: block; */
+}
+
+.select-menu .options{
+    position: relative;
+    padding: 10px;
+    display: none;
+}
+
+.select-menu.active .select-btn i {
+    transform: rotate(-180deg);
+}
+
+.select-menu.active .options {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 0px 10px;
+    list-style: none;
+}
+
+.select-menu.active .options .option span {
+    color: #472D30;
+    transition: 200ms ease-in-out all;
+}
+
+.select-menu.active .options .option span:hover {
+    color: #FFF1D6;
+}
+
+.options .option span{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.options .option span:hover{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.option a {
+    text-decoration: none;
 }
 
 footer {

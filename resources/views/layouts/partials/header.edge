@@ -18,11 +18,62 @@
                 <a href="{{ route('sessions.login') }}"> <button class="login-button"> LOGIN </button> </a>
             </div>
         @else
-            <div class="select-menu">
-                <div class="select-btn">
-                    <span class="sBtn-text"> {{ auth.user.email }} </span>
-                </div>
+
+        
+            
+        <div class="select-menu">
+            <div class="select-btn">
+                <span class="current-user"> {{ auth.user.email }} </span>
+                <span class="sBtn-text"> Navegue! </span>
+                <i class ="bx bx-chevron-down"></i>
             </div>
+            <ul class="options">
+                <li class="option">
+                    <i class="bx bxl-profile"></i>
+                    <a href="{{route('DataUsersController.show')}}">
+                        <span class="option-text">Meu Perfil</span>
+                    </a>
+                </li>
+                <li class="option">
+                    <i class="bx bxl-profile"></i>
+                    <a href="{{route('PostsController.myPosts')}}">
+                        <span class="option-text">Meus posts</span>
+                    </a>
+                </li>
+                <li class="option">
+                    <i class="bx bxl-profile"></i>
+                    <a href="{{route('PostsController.create')}}">
+                        <span class="option-text">Novo post</span>
+                    </a>
+                </li>
+                <li class="option">
+                    <i class="bx bxl-profile"></i>
+                    <a href="{{route('SessionsController.logout')}}">
+                        <span class="option-text">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            const optionMenu = document.querySelector(".select-menu"),
+                selectBtn = optionMenu.querySelector(".select-btn"),
+                options = optionMenu.querySelectorAll(".option"),
+                sBtn_txt = optionMenu.querySelector(".sBtn-text");
+
+            selectBtn.addEventListener("click", () =>{
+                optionMenu.classList.toggle("active");
+            });
+
+            options.forEach(option =>{
+                option.addEventListener("click",() =>{
+                    let selectedOption = option.querySelector(".option-text").innerText;
+                    sBtn_txt.innerText = selectedOption;
+
+                    optionMenu.classList.remove("active");
+                });
+            });
+        </script>
 
         @endif
     </div>
