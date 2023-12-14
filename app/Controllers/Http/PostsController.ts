@@ -33,7 +33,7 @@ export default class PostsController {
         return view.render('posts/show', {post: post, user: user})
     }
 
-    public async myPosts({ auth, params, view }: HttpContextContract) {
+    public async myPosts({ auth, view }: HttpContextContract) {
         const author = auth.user.id
         const authorName = auth.user.name
         const posts = await Post.query().where("user_id" , author)
@@ -41,6 +41,19 @@ export default class PostsController {
         return view.render('posts/myPosts', {posts, authorName})
     }
 
+    public async articles({ view }: HttpContextContract) {
+        const posts = await Post.query().where("category" , "Artigo")
+        const users = await User.all()
+
+        return view.render('posts/articles', { posts, users })
+    }
+
+    public async reviews({ view }: HttpContextContract) {
+        const posts = await Post.query().where("category" , "Review")
+        const users = await User.all()
+
+        return view.render('posts/reviews', { posts, users })
+    }
 
     public async edit({}: HttpContextContract) {}
   
